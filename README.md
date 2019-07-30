@@ -25,7 +25,7 @@ Comment field takes input.
 ![Screenshot_3](public/img/Screenshot_1.3.png)
 
 
-MongoDB shows saved articles. 
+MongoDB shows saved articles.
 ![Screenshot_4](public/img/Screenshot_1.4.png)
 
 
