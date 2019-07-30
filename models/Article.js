@@ -16,12 +16,17 @@ var ArticleSchema = new Schema({
     type: String,
     required: true
   },
-  // `note` is an object that stores a Note id
-  // The ref property links the ObjectId to the Note model
-  // This allows us to populate the Article with an associated Note
-  note: {
+  // `summary` is required and a type of String 
+  summary: {
+    type: String, 
+    required: true 
+  },
+  // `comment` is an object that stores an id
+  // The ref property links the ObjectId to the comment model
+  // This allows us to populate the Article with an associated comment
+  comment: {
     type: Schema.Types.ObjectId,
-    ref: "Note"
+    ref: "Comment"
   }
 });
 
