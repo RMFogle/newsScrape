@@ -30,9 +30,9 @@ app.use(express.static("views"));
 mongoose.connect("mongodb://localhost/newsScrape", { useNewUrlParser: true });
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsScrape";
+var MONGOLAB_PUCE_URI = process.env.MONGOLAB_PUCE_URI || "mongodb://localhost/newsScrape";
 
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGOLAB_PUCE_URI);
 
 // Set Handlebars
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
