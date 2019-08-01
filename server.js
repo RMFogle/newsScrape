@@ -11,7 +11,7 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 
-var PORT = 3000;
+ var PORT = 3000;
 
 // Initialize Express
 var app = express();
@@ -27,12 +27,15 @@ app.use(express.json());
 app.use(express.static("views"));
 
 // Connect to the Mongo DB
-// mongoose.connect("mongodb://localhost/newsScrape", { useNewUrlParser: true });
+ //mongoose.connect("mongodb://localhost/newsScrape", { useNewUrlParser: true });
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/newsScrape', { useNewUrlParser: true });
 
-mongoose.connect(MONGODB_URI);
+
+// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+
+// mongoose.connect(MONGODB_URI);
 
 // or???
 // var MONGOLAB_PUCE_URI = process.env.MONGOLAB_PUCE_URI || "mongodb://localhost/newsScrape";
@@ -149,6 +152,6 @@ app.get("/", function(req, res) {
   // app.delete("/")
   
   // Start the server
-  app.listen(PORT, function() {
+   app.listen(PORT, function() {
     console.log("App running on port " + PORT + "!");
-  });
+   });
