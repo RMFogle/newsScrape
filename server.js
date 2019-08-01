@@ -27,12 +27,17 @@ app.use(express.json());
 app.use(express.static("views"));
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/newsScrape", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost/newsScrape", { useNewUrlParser: true });
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGOLAB_PUCE_URI = process.env.MONGOLAB_PUCE_URI || "mongodb://localhost/newsScrape";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
-mongoose.connect(MONGOLAB_PUCE_URI);
+mongoose.connect(MONGODB_URI);
+
+// or???
+// var MONGOLAB_PUCE_URI = process.env.MONGOLAB_PUCE_URI || "mongodb://localhost/newsScrape";
+
+// mongoose.connect(MONGOLAB_PUCE_URI);
 
 // Set Handlebars
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
